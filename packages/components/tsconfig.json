@@ -47,7 +47,6 @@
 		"src/index.js",
 		"src/autocomplete",
 		"src/custom-gradient-picker",
-		"src/dimension-control",
 		"src/duotone-picker",
 		"src/gradient-picker",
 		"src/guide",
