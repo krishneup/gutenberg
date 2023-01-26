@@ -12,6 +12,7 @@
 -   `TabPanel`: Improve unit test in preparation for controlled component updates ([#48086](https://github.com/WordPress/gutenberg/pull/48086)).
 -   `Autocomplete`: performance: avoid setting state on every value change ([#48485](https://github.com/WordPress/gutenberg/pull/48485)).
 -   `Higher Order` -- `with-constrained-tabbing`: Convert to TypeScript ([#48162](https://github.com/WordPress/gutenberg/pull/48162)).
+-   `DimensionControl(Experimental)`: Convert to TypeScript ([#47351](https://github.com/WordPress/gutenberg/pull/47351)).
 
 ## 23.4.0 (2023-02-15)
 
