@@ -18,7 +18,7 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    # Runs PHP coding standards checks.
+    # Runs PHP compatibility testing.
     #
     # Violations are reported inline with annotations.
     php-compatibility:
@@ -38,7 +38,7 @@ jobs:
                   coverage: none
                   tools: cs2pr
 
-            # This date is used to ensure that the PHPCS cache is cleared at least once every week.
+            # This date is used to ensure that the PHP compatibility cache is cleared at least once every week.
             # http://man7.org/linux/man-pages/man1/date.1.html
             - name: "Get last Monday's date"
               id: get-date
@@ -64,7 +64,7 @@ jobs:
               id: phpcs
               run: phpcs --report-full --report-checkstyle=./.cache/phpcs-compat-report.xml
 
-            - name: Show PHPCS results in PR
+            - name: Show PHPCompatibility results in PR
               if: ${{ always() && steps.phpcs.outcome == 'failure' }}
               run: cs2pr ./.cache/phpcs-compat-report.xml
 
