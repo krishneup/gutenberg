@@ -23,8 +23,11 @@ jest.mock( '../listener', () => {
 
 			this.constructor._instance = this;
 
-			jest.spyOn( this, 'add' );
-			jest.spyOn( this, 'remove' );
+			// Nest `jest.spyOn` calls into a block to avoid buggy hoisting
+			{
+				jest.spyOn( this, 'add' );
+				jest.spyOn( this, 'remove' );
+			}
 		}
 	};
 } );

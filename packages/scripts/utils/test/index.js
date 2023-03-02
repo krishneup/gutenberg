@@ -29,25 +29,34 @@ import {
 jest.mock( '../package', () => {
 	const module = jest.requireActual( '../package' );
 
-	jest.spyOn( module, 'getPackagePath' );
-	jest.spyOn( module, 'hasPackageProp' );
+	// Nest `jest.spyOn` calls into a block to avoid buggy hoisting
+	{
+		jest.spyOn( module, 'getPackagePath' );
+		jest.spyOn( module, 'hasPackageProp' );
+	}
 
 	return module;
 } );
 jest.mock( '../process', () => {
 	const module = jest.requireActual( '../process' );
 
-	jest.spyOn( module, 'exit' );
-	jest.spyOn( module, 'getArgsFromCLI' );
+	// Nest `jest.spyOn` calls into a block to avoid buggy hoisting
+	{
+		jest.spyOn( module, 'exit' );
+		jest.spyOn( module, 'getArgsFromCLI' );
+	}
 
 	return module;
 } );
 jest.mock( '../file', () => {
 	const module = jest.requireActual( '../file' );
 
-	jest.spyOn( module, 'hasProjectFile' );
-	jest.spyOn( module, 'fromProjectRoot' );
-	jest.spyOn( module, 'fromConfigRoot' );
+	// Nest `jest.spyOn` calls into a block to avoid buggy hoisting
+	{
+		jest.spyOn( module, 'hasProjectFile' );
+		jest.spyOn( module, 'fromProjectRoot' );
+		jest.spyOn( module, 'fromConfigRoot' );
+	}
 
 	return module;
 } );
