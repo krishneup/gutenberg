@@ -51,6 +51,11 @@ export default function SidebarNavigationScreenNavigationItem() {
 					icon={ pencil }
 				/>
 			}
+			description={
+				postType === 'page'
+					? __( 'This is a static page.' )
+					: __( 'This is your posts page' )
+			}
 			content={
 				<>
 					{ post?.link ? (
