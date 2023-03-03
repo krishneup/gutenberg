@@ -32,7 +32,7 @@ export default function SidebarNavigationScreenMain() {
 			isRoot
 			title={ __( 'Design' ) }
 			description={ __(
-				'Customise your Navigation menus, Templates, and more.'
+				'Customise your Navigation menus, Templates, and Styles.'
 			) }
 			content={
 				<>
