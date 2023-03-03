@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import { useDispatch } from '@wordpress/data';
 import { pencil } from '@wordpress/icons';
 
@@ -13,6 +13,23 @@ import useEditedEntityRecord from '../use-edited-entity-record';
 import { unlock } from '../../private-apis';
 import { store as editSiteStore } from '../../store';
 import SidebarButton from '../sidebar-button';
+import { useAddedBy } from '../list/added-by';
+
+function AddedByDescription( { template } ) {
+	const addedBy = useAddedBy( template );
+
+	if ( ! addedBy.text ) return null;
+
+	return (
+		<p>
+			{ sprintf(
+				/* translators: %s: The author. Could be either the theme's name, plugin's name, or user's name. */
+				__( 'Added by %s.' ),
+				addedBy.text
+			) }
+		</p>
+	);
+}
 
 export default function SidebarNavigationScreenTemplate() {
 	const { setCanvasMode } = unlock( useDispatch( editSiteStore ) );
@@ -34,7 +51,13 @@ export default function SidebarNavigationScreenTemplate() {
 					icon={ pencil }
 				/>
 			}
-			content={ description ? <p>{ description }</p> : undefined }
+			content={
+				description ? (
+					<p>{ description }</p>
+				) : (
+					<AddedByDescription template={ record } />
+				)
+			}
 		/>
 	);
 }
