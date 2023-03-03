@@ -40,6 +40,19 @@
 	<file>./phpunit</file>
 	<file>./post-content.php</file>
 
+	<!-- Enforce no parenthesis for language constructs, and only one space immediately after.
+		 Including this rule is temporary until it is moved from the WordPress-Extra ruleset to
+		 the WordPress-Core ruleset upstream.
+	-->
+	<rule ref="PEAR.Files.IncludingFile.BracketsNotRequired">
+		<type>warning</type>
+	</rule>
+	<rule ref="PEAR.Files.IncludingFile.UseRequire">
+		<type>warning</type>
+	</rule>
+	<rule ref="PEAR.Files.IncludingFile.UseRequireOnce">
+		<type>warning</type>
+	</rule>
 	<!-- Omit parenthesis for include/require statements -->
 	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
 
