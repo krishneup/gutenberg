@@ -53,7 +53,6 @@
 		"src/higher-order/with-filters",
 		"src/higher-order/with-focus-return",
 		"src/higher-order/with-notices",
-		"src/navigation",
 		"src/palette-edit"
 	]
 }
