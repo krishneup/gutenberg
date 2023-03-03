@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
     unit-js:
-        name: JavaScript
+        name: Jest Tests
         runs-on: ubuntu-latest
         if: ${{ github.repository == 'WordPress/gutenberg' || github.event_name == 'pull_request' }}
 
